@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string $person_name
  * @property string|null $linkedin_url
  * @property string|null $github_url
+ * @property string $uuid
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  * @property string|null $deleted_at
@@ -33,6 +34,7 @@ class PersonCard extends Model
 	const PERSON_NAME = 'person_name';
 	const LINKEDIN_URL = 'linkedin_url';
 	const GITHUB_URL = 'github_url';
+	const UUID = 'uuid';
 	const CREATED_AT = 'created_at';
 	const UPDATED_AT = 'updated_at';
 	const DELETED_AT = 'deleted_at';
@@ -58,6 +60,7 @@ class PersonCard extends Model
 	protected $fillable = [
 		self::PERSON_NAME,
 		self::LINKEDIN_URL,
-		self::GITHUB_URL
+		self::GITHUB_URL,
+		self::UUID
 	];
 }
