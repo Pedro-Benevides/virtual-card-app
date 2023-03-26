@@ -6,6 +6,10 @@ use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
+    public $singletons = [
+        \App\Services\Contracts\PersonCardService::class => \App\Services\Implementations\PersonCardService::class
+    ];
+
     /**
      * Register any application services.
      */
