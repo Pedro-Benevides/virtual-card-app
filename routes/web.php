@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/generate', function () {
     return view('welcome');
+});
+
+Route::prefix('/person-cards')->group(function () {
+    Route::post('/', 'PersonCardController@create');
+
+    Route::prefix('/{uuid}')->group(function () {
+        Route::get('/', "PersonCardController@getByUuid");
+    });
 });
