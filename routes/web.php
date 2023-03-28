@@ -19,5 +19,5 @@ Route::get('/gen-code/{cardUuid}', "\App\Http\Controllers\PersonCardController@g
 
 Route::prefix('/person-cards/{cardUuid}')->group(function () {
     Route::get('/qr-code', \App\Http\Livewire\QrCode::class);
-    Route::get('/', "PersonCardController@getByUuid")->name('virtual-card');
+    Route::get('/', \App\Http\Livewire\VirtualCard::class);
 });
