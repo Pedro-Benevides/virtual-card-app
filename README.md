@@ -18,8 +18,14 @@ composer install
 ```
 
 2. Setup Environment Variables
+Should be configured in a new .env file following the .env.example pattern
 
-3. Run the Migrations
+3. Generate App Key
+```
+php artisan key:generate
+```
+
+4. Run the Migrations
 
 ```
 php artisan migrate
@@ -28,5 +34,5 @@ php artisan migrate
 ## Run the App
 
 ```
-php artisans serve
+php artisan serve
 ```
