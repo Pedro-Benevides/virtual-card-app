@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/generate', \App\Http\Livewire\QrCodeGenerate::class)->name('home');
+Route::get('/', \App\Http\Livewire\QrCodeGenerate::class)->name('home');
 
 Route::get('/gen-code/{cardUuid}', "\App\Http\Controllers\PersonCardController@genCode")->name('gen-code');
 
