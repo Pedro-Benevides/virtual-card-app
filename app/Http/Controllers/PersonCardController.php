@@ -2,31 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\DTO\CreatePersonCard;
-use App\Http\Requests\CreatePersonCardRequest;
-use App\Services\Contracts\PersonCardService;
-use Illuminate\Http\Request;
+use LaravelQRCode\Facades\QRCode;
 
 class PersonCardController extends Controller
 {
-    public function __construct(private PersonCardService $cardService)
+
+    public function genCode(string $cardUuid)
     {
-        //
-    }
-
-    public function create(CreatePersonCardRequest $request)
-    {
-        $data = $request->getData();
-
-        $personCard = $this->cardService->create($data);
-
-        return response()->json($personCard);
-    }
-
-    public function getByUuid(string $cardUuid)
-    {
-        $personCard = $this->cardService->findOrError($cardUuid);
-
-        return response()->json($personCard);
+        return QRCode::url(url("/person-cards/{$cardUuid}"))
+            ->setSize(8)
+            ->setMargin(2)
+            ->png();
     }
 }
