@@ -13,14 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/generate', function () {
-    return view('welcome');
-});
+Route::get('/generate', \App\Http\Livewire\QrCodeGenerate::class)->name('home');
 
-Route::prefix('/person-cards')->group(function () {
-    Route::post('/', 'PersonCardController@create');
+Route::get('/gen-code/{cardUuid}', "\App\Http\Controllers\PersonCardController@genCode")->name('gen-code');
 
-    Route::prefix('/{uuid}')->group(function () {
-        Route::get('/', "PersonCardController@getByUuid");
-    });
+Route::prefix('/person-cards/{cardUuid}')->group(function () {
+    Route::get('/qr-code', \App\Http\Livewire\QrCode::class);
+    Route::get('/', "PersonCardController@getByUuid")->name('virtual-card');
 });
