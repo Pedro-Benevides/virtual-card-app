@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Qr Code Gen</title>
+    <title>Virtual Card</title>
 
-    <!-- Styles -->
+    @livewireStyles
+
     <style>
         body {
             font-family: "Nunito";
@@ -41,7 +39,7 @@
             border-radius: 0 5px 5px 0;
         }
 
-        .form-inline button {
+        button {
             width: 30%;
             padding: 10px 15px;
             background: #ddd0;
@@ -72,10 +70,7 @@
 </head>
 
 <body>
-
-    <livewire:qr-code-generate></livewire:qr-code-generate>
+    {{ $slot }}
 
     @livewireScripts
 </body>
-
-</html>
