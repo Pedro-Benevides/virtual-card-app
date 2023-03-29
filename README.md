@@ -7,28 +7,55 @@ Builded with Laravel Sail, Laravel Livewire and PostgreSQL database.
 ## Requirements
 * PHP >= 8
 * Composer >= 2
-* Docker
 
 ## Installation
 
-1. Install dependencies
+1. Using Docker
 
+You can use the docker-composer file to setup your enviroment using Laravel Sail
+```
+./vendor/bin/sail up
+```
+Or try 
+```
+bash ./vendor/laravel/sail/bin/sail up
+```
+**Obs: You can [develop within WSL2](https://laravel.com/docs/10.x/installation#getting-started-on-windows). Its recommended use [Remote Development](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.vscode-remote-extensionpack) VSCode extension. More about using sail: [Laravel Sail Docs](https://laravel.com/docs/10.x/sail)**
+
+1. Install dependencies
 ```
 composer install
 ```
 
-2. Setup Environment Variables
-Should be configured in a new .env file following the .env.example pattern
+Using sail:
+```
+sail composer install
+```
 
-3. Generate App Key
+3. Setup Environment Variables
+
+Should be configured in a new .env file, following the .env.example pattern
+
+
+4. Generate App Key
 ```
 php artisan key:generate
 ```
 
-4. Run the Migrations
+Using sail:
+```
+sail artisan key:generate
+```
+
+5. Run the Migrations
 
 ```
 php artisan migrate
+```
+
+Using sail:
+```
+sail artisan migrate
 ```
 
 ## Run the App
@@ -36,3 +63,5 @@ php artisan migrate
 ```
 php artisan serve
 ```
+
+**Obs: You dont need this using sail.**
