@@ -1,6 +1,7 @@
 # Virtual Card App
 This is a simple web application that you can register your links of LinkedIn and GitHub and get a Qr-code with direct access to the created virtual card.
 
+You can check the full funcionality [here](https://virtual-card-app.herokuapp.com)
 Builded with Laravel Sail, Laravel Livewire and PostgreSQL database.
 *Autor: Pedro Benevides*
 
